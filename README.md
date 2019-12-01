@@ -6,7 +6,7 @@ Neural style transfer
  - numpy
  - pandas
  - __tensorflow__
+ - __tensorflow-gpu__
  - __keras__
  
- Alert Dont Load opt = tf.train.AdamOptimizer(learning_rate=5, beta1=0.99, epsilon=1e-1)
- 
+Works Optimizer Adam from tensorflow Again Xd
