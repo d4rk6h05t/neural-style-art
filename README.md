@@ -1,6 +1,12 @@
 # neural-style-art
 Neural style transfer
-# packages
+For this moment use Pytho2.7
+# Packages level OS
+ - __python2.7__
+ - __pip__
+ - __virtualenv__
+ - __tk__
+# Pip packages
  - __jupyterlab__
  - __matplotlib__
  - __numpy__
