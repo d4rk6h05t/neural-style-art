@@ -2,9 +2,10 @@
 Neural style transfer
 # packages
  - __jupyterlab__
- - matplotlib
- - numpy
- - pandas
+ - __matplotlib__
+ - __numpy__
+ - __pandas__
+ - __Pyllow__
  - __tensorflow__
  - __tensorflow-gpu__
  - __keras__
