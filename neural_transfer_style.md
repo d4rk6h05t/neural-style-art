@@ -139,8 +139,8 @@ print("Eager execution: {}".format(tf.executing_eagerly()))
 
 ```python
 # Definicion de la ruta de imagen contenido e imagen de estilo
-content_path = '/home/d4rk6h05t/Projects/python/neural-style-art/img/turtle_to_style_kanagawa/turtle.jpg'
-style_path = '/home/d4rk6h05t/Projects/python/neural-style-art/img/turtle_to_style_kanagawa/kanagawa.jpg'
+content_path = 'some/path/python/neural-style-art/img/turtle_to_style_kanagawa/turtle.jpg'
+style_path = 'some/path/python/neural-style-art/img/turtle_to_style_kanagawa/kanagawa.jpg'
 ```
 
 
@@ -538,81 +538,4 @@ show_results(best, content_path, style_path)
 ![png](neural_transfer_style_files/neural_transfer_style_24_0.png)
 
 
-
 ![png](neural_transfer_style_files/neural_transfer_style_24_1.png)
-
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
