@@ -1,3 +1,6 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![GitHub release](https://img.shields.io/badge/release-v1.0.0-green)](https://github.com/devMichani/nano-db-manager.git)
+
 # neural-style-art
 Neural style transfer
 For this moment use Pytho2.7
