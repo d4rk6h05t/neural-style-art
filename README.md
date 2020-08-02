@@ -80,7 +80,8 @@ show_results(best, content_path, style_path)
 ![png](neural_transfer_style_files/neural_transfer_style_24_1.png)
 
 # Aditional Note:
-This project is a fork of [nst-blogpost](https://github.com/tensorflow/models/tree/master/research/nst_blogpost)
+This project is a fork of [https://github.com/tensorflow/models/tree/master/research/nst_blogpost](https://github.com/tensorflow/models/tree/master/research/nst_blogpost)
+
 When you increase the number of iterations of the execution of the transfer style function, the need for computing is greater and for optimal results you need a little more computing  resources in my case take advantage of a virtual machine in azure (Ubuntu 18.04, core i7, 16GB RAM), depending on the number of iterations is the time to run the script.
     
 ```sh
