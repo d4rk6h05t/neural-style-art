@@ -1,26 +1,26 @@
 ```python
-# Importando bibliotecas para el uso del sistema operativo
 import os
 import sys
 ```
 
 
 ```python
-# Definiendo la ruta de las imagenes y asegurando la existencia de dicha ruta
-img_dir = '/home/d4rk6h05t/Projects/python/neural-style-art/img'
+# Defining the route of the images and ensuring the existence of such a route
+img_dir = '/some/path/neural-style-art/img'
 if not os.path.exists(img_dir):
     os.makedirs(img_dir)
 ```
 
 
 ```python
-# Importando las bibliotecas
-# - Matplotlib( Manejador de graficos )
-# - Pandas( Manejador de estructuras como  tablas numéricas y series temporales )
-# - Numpy ( Extencion de python agregar mayor soporte a los vectores y matrices )
-# - PIL (Python Imaging Library antes PILLOW manipulador de archivos de imagenes )
-# - time ( Manipulador de tareas temporales )
-# - functools ( Manejador de funciones de orden superior )
+ '''
+ - Matplotlib( Graphics handler )
+ - Pandas( Structure handler like number tables and time series )
+ - Numpy ( python extension add more support to vectors and matrices )
+ - PIL (Python Imaging Library before PILLOW image file manipulator)
+ - time ( Temporary Task Manipulator )
+ - functools ( Higher order function manager )
+'''
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 mpl.rcParams['figure.figsize'] = (10,10)
@@ -34,50 +34,45 @@ import functools
 
 
 ```python
-# Tensor ( Entidad algebraica de varios componentes, que generaliza los conceptos de escalar, vector y matriz )
-# - Tensorflow ( Aprendizaje automático a través de un rango de tareas con  capacidad de construir y entrenar 
-#               redes neuronales para detectar y descifrar patrones y correlaciones, análogos al aprendizaje y 
-#               razonamiento usados por los humanos. )
-# - Keras ( Manipulador de redes neuronales, Ayuda a experimentar con redes de Aprendizaje Profundo )
-# Keras es una biblioteca a nivel de modelo, que proporciona bloques de construcción de alto nivel para el 
-# desarrollo de modelos de aprendizaje profundo. No maneja operaciones de bajo nivel tales como productos 
-# tensores, convoluciones, etc. En su lugar, se basa en una biblioteca especializada y bien optimizada de 
-# manipulación de tensores para hacerlo, sirviendo como el "motor backend" de Keras. En lugar de elegir una 
-# sola librería de tensores y hacer que la implementación de Keras se vincule a esa librería, Keras maneja el 
-# problema de una manera modular, y varios motores backend diferentes se pueden conectar sin problemas a Keras.
+'''
+ -  Tensor : (Algebraic entity of several components, which generalizes the concepts of scalar, vector and matrix)
+ -  Tensorflow :( Automatic learning through a range of tasks with the ability to build and train 
+ neural networks to detect and decipher patterns and correlations, analogous to learning and 
+ reasoning used by humans )
+ -  Keras : ( Neural Network Manipulator, Helps experiment with Deep Learning Networks )
+    Keras is a model level library, providing high level building blocks for the 
+    development of models of deep learning. It does not handle low-level operations such as products 
+    tensioners, convolutions, etc. Instead, it is based on a specialized and well-optimized library of 
+    manipulating tensors to do so, serving as Keras "backend engine". Instead of choosing a 
+    single library of tensors and make the Keras implementation link to that library, Keras handles the 
+    problem in a modular way, and several different backend motors can be connected to Keras without any problem
 
-# - tensorflow.python.keras.preprocessing : Keras data preprocessing utils.
-# tensorflow.python.keras (Models) : Manipulador del modelo ( Red neuronal Profunda )
-# tensorflow.python.keras (losses) : Una función de pérdida ( o función de objetivo, o función de puntuación 
-#                                   de optimización es uno de los dos parámetros necesarios para compilar un modelo )
-# tensorflow.python.keras (layers) : Ayuda Manipular las capas ( funciones con tareas especificas. Estás funciones se conocen como capas )
-# - Buscar patrones
-# Las capas que buscan patrones son realmente las encargadas de aprender que patrón hay relevante en la entrada 
-# de esa capa. Estos patrones que aprenden se conocen como pesos. Para comparar la entrada con los pesos se 
-# usa lo que se conoce como producto de señales.
+-   tensorflow.python.keras.preprocessing : Keras data preprocessing utils.
+-   tensorflow.python.keras (Models): Model manipulator (Deep Neural Network)
+-   tensorflow.python.keras (losses) : A loss function ( or target function, or score function 
+    optimization is one of the two parameters needed to compile a model )
+-   tensorflow.python.keras (layers): Help Manipulate the layers (functions with specific tasks. These functions are known as layers)
+-   Search for patterns
+    The layers that look for patterns are really the ones in charge of learning what pattern is relevant in the input 
+    of that cape. These learning patterns are known as weights. To compare the entry with the weights you 
+    uses what is known as signal product
 
-# - Transformar los datos, llamadas capas de activación.
-# Transforman los datos
-# Por otro lado están las capas que transforman los datos llamadas capas de activación estás llevan los datos a nuevos
-# espacios, los condensan y los anulan. Pero sobretodo tienen una propiedad muy importante: son funciones no-lineales.
-# Una red neuronal debe ser una Universal Function Approximators, que viene a decir que 
-# “tiene que permitir aproximar cualquier función”.
+-   Transform the data, called activation layers.
+    They transform the data
+    On the other hand there are the layers that transform the data called activation layers that take the data to new
+    spaces, condense them and cancel them out But above all they have a very important property: they are non-linear functions.
+    A neural network must be a Universal Function Approximator, which means : must allow any function to be approached
 
-# Perceptrón (Neurona Artificial)
-# De los dos anteriores conceptos nace el perceptrón que combina ambos para crear una neurona artificial.
-
-# tensorflow.python.keras (backend) : Keras tiene 3 implementaciones de backend : TensorFlow, Theano y CNTK.
-# tensorflow.keras.optimizers.Adam :
-# Adam es un algoritmo de optimización de reemplazo para el descenso de gradiente estocástico para entrenar 
-# modelos de aprendizaje profundo. Adam combina las mejores propiedades de los algoritmos AdaGrad y RMSProp 
-# para proporcionar un algoritmo de optimización que puede manejar gradientes escasos en problemas de ruido.
-# tensorflow.python.ops Confusion_matrix
-# Calcula la matriz de confusión a partir de predicciones y etiquetas.
-# Las columnas de la matriz representan las etiquetas de predicción y las filas representan la
-# etiquetas de verdad. La matriz de confusión es siempre una matriz 2-D de forma `[n, n]``,
-# donde `n` es el número de etiquetas válidas para una tarea de clasificación dada. Ambos
-# y las etiquetas deben ser matrices 1-D de la misma forma para que esto sea posible.
-# para que funcione.
+-   Perceptron (Artificial Neuron): From the two previous concepts is born the perception that combines both to create an artificial neuron.
+-   tensorflow.python.keras (backend) : Keras has 3 backend implementations : TensorFlow, Theano and CNTK.
+-   tensorflow.keras.optimizers.Adam :  Adam is a replacement optimization algorithm for stochastic gradient descent for training 
+    models of deep learning. Adam combines the best properties of the AdaGrad and RMSProp algorithms to provide an
+    optimization algorithm that can handle low gradients in noise problems.
+-   tensorflow.python.ops : Confusion_matrix
+    Calculate the confusion matrix from predictions and labels The columns of the matrix represent the prediction labels and the rows represent the
+    real labels. The confusion matrix is always a 2-D matrix in the form `[n, n]``, where `n` is the number of valid tags for a given sorting task. Both
+    and the labels must be 1-D matrixes in the same way for this to be possible to make it work.
+'''
 
 import tensorflow as tf
 from tensorflow.python.keras.preprocessing import image as kp_image
@@ -96,22 +91,30 @@ from tensorflow.python.ops import math_ops
 
 
 ```python
-# Importaciones necesarias para cargar la ejecucion ansiosa de tensorflow
-# La ansiosa ejecución de TensorFlow es un entorno de programación imperativo que evalúa las operaciones 
-# inmediatamente, sin construir gráficos: las operaciones devuelven valores concretos en lugar de construir 
-# un gráfico computacional para ejecutarse más tarde. Esto hace que sea fácil comenzar con los modelos 
-# TensorFlow y de depuración, y también reduce el número de calderas. Para seguir con esta guía, 
-# ejecute los ejemplos de código que aparecen a continuación en un intérprete interactivo de python
+
+
+'''
+Imports needed to load the eager execution of tensorflow
+TensorFlow's eager execution is a must-have programming environment that evaluates operations 
+immediately, without constructing graphs: the operations return concrete values instead of constructing 
+a computer graphic to be run later This makes it easy to get started with the models 
+TensorFlow and debugging, and also reduces the number of boilers To continue with this guide, 
+run the code examples below in an interactive python interpreter
+'''
+
 from __future__ import absolute_import, division, print_function, unicode_literals
-# Cargar el kernel de tensorflow2
+# Load the tensorflow2 kernel
 try:
   # %tensorflow_version only exists in Colab.
   %tensorflow_version 2.x  #gpu
 except Exception:
     pass
-#  Cprofile : proporcionan un perfil determinista de los programas de Python. Un perfil es un conjunto de 
-# estadísticas que describe con qué frecuencia y durante cuánto tiempo se ejecutan varias partes del programa. 
-# Estas estadísticas se pueden formatear en informes a través del módulo pstats.
+
+'''
+Cprofile : provide a deterministic profile of Python programs. A profile is a set of 
+statistics describing how often and for how long various parts of the program are run 
+These statistics can be formatted into reports through the pstats module.
+'''
 import cProfile
 ```
 
@@ -129,7 +132,7 @@ tf.executing_eagerly() # test tensorflow eager
 
 
 ```python
-# Testeando Eager execution 
+# Test Eager execution 
 print("Eager execution: {}".format(tf.executing_eagerly()))
 ```
 
@@ -138,14 +141,14 @@ print("Eager execution: {}".format(tf.executing_eagerly()))
 
 
 ```python
-# Definicion de la ruta de imagen contenido e imagen de estilo
+# Definition of the image path content and image style
 content_path = 'some/path/python/neural-style-art/img/turtle_to_style_kanagawa/turtle.jpg'
 style_path = 'some/path/python/neural-style-art/img/turtle_to_style_kanagawa/kanagawa.jpg'
 ```
 
 
 ```python
-# Simple funcion para Cargar la imagen recibe una ruta como parametro 
+# Simple function to Load the image receives a route as parameter 
 def load_img(path_to_img):
     max_dim = 512
     img = Image.open(path_to_img)
@@ -160,7 +163,7 @@ def load_img(path_to_img):
 
 
 ```python
-# Muestra la imagen precargada
+# Shows the preloaded image
 def imshow(img, title=None):
     # Remove the batch dimension
     out = np.squeeze(img, axis=0)
@@ -174,7 +177,7 @@ def imshow(img, title=None):
 
 
 ```python
-# Muestra las imagenes a trabajar
+# Show the images to work
 plt.figure(figsize=(10,10))
 
 content = load_img(content_path).astype('uint8')
@@ -194,7 +197,7 @@ plt.show()
 
 
 ```python
-# Carga y procesa la imagen
+# Load and process the image
 def load_and_process_img(path_to_img):
     img = load_img(path_to_img)
     img = tf.keras.applications.vgg19.preprocess_input(img)
@@ -203,14 +206,15 @@ def load_and_process_img(path_to_img):
 
 
 ```python
-# Con el fin de obtener tanto el contenido como las representaciones de estilo de nuestra imagen, 
-# veremos algunas capas intermedias dentro de nuestro modelo. Las capas intermedias representan mapas 
-# de características que se van ordenando cada vez más a medida que se profundiza. En este caso, estamos 
-# utilizando la arquitectura de red VGG19, una red de clasificación de imágenes preformada. Estas capas 
-# intermedias son necesarias para definir la representación del contenido y el estilo de nuestras imágenes.
-# Para una imagen de entrada, intentaremos hacer coincidir las representaciones de estilo y contenido 
-# correspondientes en estas capas intermedias.
-
+'''
+In order to obtain both the content and the style representations of our image 
+we will see some intermediate layers within our model The intermediate layers represent maps 
+of characteristics that are ordered more and more as you go deeper In this case, we are 
+using the VGG19 network architecture, a pre-formed image classification network These layers 
+intermediates are necessary to define the representation of the content and style of our images.
+For an input image, we will try to match the style and content representations 
+corresponding in these intermediate layers.
+'''
 def deprocess_img(processed_img):
     x = processed_img.copy()
     if len(x.shape) == 4:
@@ -231,12 +235,13 @@ def deprocess_img(processed_img):
 
 
 ```python
-# Dentro de nuestra red de clasificación de imágenes preconfigurada nos permiten definir las representaciones de
-# estilo y contenido. A un alto nivel, este fenómeno puede explicarse por el hecho de que para que una red realice
-# la clasificación de imágenes (para lo cual nuestra red ha sido entrenada), debe entender la imagen. Esto implica
-# tomar la imagen cruda como píxeles de entrada y construir una representación interna a través de transformaciones
-# que convierten los píxeles de la imagen cruda en una comprensión compleja de las características presentes dentro de la imagen. Esto es también en parte la razón por la que las redes neuronales convolucionales son capaces de generalizarse bien: son capaces de capturar las invariantes y definir características dentro de las clases (por ejemplo, gatos vs. perros) que son agnósticas al ruido de fondo y otras molestias. Así, en algún punto entre la entrada de la imagen en bruto y la salida de la etiqueta de clasificación, el modelo sirve como un extractor de características complejas; por lo tanto, accediendo a capas intermedias, podemos describir el contenido y el estilo de las imágenes de entrada.
-
+'''
+Within our preconfigured image classification network we can define the representations of
+style and content. At a high level, this phenomenon can be explained by the fact that for a network to perform
+the classification of images (for which our network has been trained), you must understand the image This implies
+take the raw image as input pixels and build an internal representation through transformations
+that convert the raw image pixels into a complex understanding of the characteristics present within the image. This is also partly why convolutional neural networks are able to generalize well: they are able to capture invariants and define characteristics within classes (e.g., cats vs. dogs) that are agnostic to background noise and other disturbances. Thus, somewhere between the input of the raw image and the output of the classification label, the model serves as an extractor of complex characteristics; thus, by accessing intermediate layers, we can describe the content and style of the input images.
+'''
 
 # Content layer where will pull our feature maps
 content_layers = ['block5_conv2'] 

@@ -1,3 +1,4 @@
+# This project is a fork of https://github.com/tensorflow/models/tree/master/research/nst_blogpost
 # Full App Neural Transfer Style
 from __future__ import absolute_import, division, print_function, unicode_literals
 import os
@@ -30,10 +31,10 @@ mpl.rcParams['figure.figsize'] = (10,10)
 mpl.rcParams['axes.grid'] = False
 
 # set dir for load images
-img_dir = '/home/ghostdev/Projects/python/neural-style-art/img'
+img_dir = '/some/path/neural-style-art/img'
 # Set up some global values here
-content_path = '/home/ghostdev/Projects/python/neural-style-art/img/turtle_to_style_kanagawa/turtle.jpg'
-style_path = '/home/ghostdev/Projects/python/neural-style-art/img/turtle_to_style_kanagawa/kanagawa.jpg'
+content_path = '/some/path/neural-style-art/img/turtle_to_style_kanagawa/turtle.jpg'
+style_path = '/some/path/neural-style-art/img/turtle_to_style_kanagawa/kanagawa.jpg'
 
 
 # Content layer where will pull our feature maps
@@ -41,11 +42,11 @@ content_layers = ['block5_conv2']
 
 # Style layer we are interested in
 style_layers = ['block1_conv1',
-			    'block2_conv1',
-			    'block3_conv1', 
-			    'block4_conv1', 
-			    'block5_conv1'
-			   ]
+                'block2_conv1',
+                'block3_conv1', 
+                'block4_conv1', 
+                'block5_conv1'
+            ]
 num_content_layers = len(content_layers)
 num_style_layers = len(style_layers)
 
@@ -323,27 +324,25 @@ def run_style_transfer(content_path,
     return best_img, best_loss
 
 def main():
-	if ( tf.executing_eagerly() ):
-		print('Succesfully load tensorflow eagerly')
-		if not os.path.exists(img_dir):
-			os.makedirs(img_dir)
-		else:
-			print('Succesfully Found path')
-			content = load_img(content_path).astype('uint8')
-			style = load_img(style_path).astype('uint8')
+    if ( tf.executing_eagerly() ):
+        print('Succesfully load tensorflow eagerly')
+        if not os.path.exists(img_dir):
+            os.makedirs(img_dir)
+        else:
+            print('Succesfully Found path')
+            content = load_img(content_path).astype('uint8')
+            style = load_img(style_path).astype('uint8')
 
-			best, best_loss = run_style_transfer(content_path, style_path, num_iterations=2)
-			show_results(best, content_path, style_path)
-			#plt.figure(figsize=(10,10))			
-			#plt.subplot(1, 2, 1)
-			#imshow(content, 'Content Image')
-			#plt.subplot(1, 2, 2)
-			#imshow(style, 'Style Image')
-			#plt.show()
-	else:
-		print('Failed tensorflow eagerly!')
-
-
+            best, best_loss = run_style_transfer(content_path, style_path, num_iterations=2)
+            show_results(best, content_path, style_path)
+            # plt.figure(figsize=(10,10))			
+            # plt.subplot(1, 2, 1)
+            # imshow(content, 'Content Image')
+            # plt.subplot(1, 2, 2)
+            # imshow(style, 'Style Image')
+            # plt.show()
+    else:
+        print('Failed tensorflow eagerly!')
 
 if __name__ == "__main__":
     main()
